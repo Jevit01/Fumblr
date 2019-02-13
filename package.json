@@ -1,0 +1,29 @@
+{
+  "name": "fumblr",
+  "version": "1.0.0",
+  "description": "Tumblr Clone",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"cd frontend && npm start\" \"cd backend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jevit01/Fumblr.git"
+  },
+  "keywords": [
+    "Fumblr"
+  ],
+  "author": "Thomas Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jevit01/Fumblr/issues"
+  },
+  "homepage": "https://github.com/Jevit01/Fumblr#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
