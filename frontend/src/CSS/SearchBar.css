@@ -1,0 +1,17 @@
+.SearchBar {
+  display: flex;
+  margin-top: 12px;
+  width: 540px;
+  height: 34px;
+  padding-left: 3px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  border-radius: 3px;
+  margin-right: 540px;
+  background-color: #425167;
+}

@@ -1,0 +1,10 @@
+.NAV {
+  display: flex;
+  height: 54px;
+  width: 300px;
+}
+
+.navImg {
+  height: 50px;
+  width: 50px;
+}
