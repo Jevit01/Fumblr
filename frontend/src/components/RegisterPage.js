@@ -1,22 +1,22 @@
 import React from "react";
 import SearchBar from "./SearchBar.js";
-import SignUpButton from "./SignUpButton.js";
-import LogIn from "./LogIn.js";
+import Register from "./Register.js";
 import Footer from "./Footer.js";
+import LogButton from "./LogButton.js";
 
-const GetStartedPage = () => {
+const RegisterPage = () => {
   return (
     <>
       <div className="homeMainBar">
         <h2 className="homeLogo">f</h2>
         <SearchBar />
-        <SignUpButton />
+        <LogButton />
       </div>
       <br />
-      <LogIn />
+      <Register />
       <Footer />
     </>
   );
 };
 
-export default GetStartedPage;
+export default RegisterPage;

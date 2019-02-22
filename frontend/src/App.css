@@ -40,12 +40,14 @@
   margin: 0px;
   padding-left: 22px;
   border-bottom: 1px solid #425167;
+  cursor: pointer;
 }
 
 .logo:hover {
   animation-name: example;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  cursor: pointer;
 }
 
 .homeMainBar {
@@ -61,12 +63,14 @@
   margin: 0px;
   padding-left: 22px;
   padding-right: 20px;
+  cursor: pointer;
 }
 
 .homeLogo:hover {
   animation-name: example;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  cursor: pointer;
 }
 
 .signup {
@@ -76,25 +80,43 @@
 
 .signUpButton {
   height: 33px;
-  width: 80px;
-  padding-left: 13px;
-  padding-right: 13px;
+  width: 87px;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 2px;
   font-weight: bolder;
-  font-size: 13px;
+  font-size: 12px;
+  color: #444444;
+  cursor: pointer;
 }
 
 .login {
+  margin-top: 150px;
   color: white;
   display: block;
   text-align: center;
   height: 200px;
   margin-left: 0px;
   margin-right: 0px;
-  margin: 0px;
   padding: 0px;
+}
+
+.logButton {
+  height: 33px;
+  width: 87px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 2px;
+  font-weight: bolder;
+  font-size: 12px;
+  color: white;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .fumblr {
@@ -128,12 +150,13 @@
   color: white;
   font-weight: bold;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .foot {
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: 25px;
   width: 250px;
   position: absolute;
   bottom: 0;
@@ -142,4 +165,60 @@
 a {
   text-decoration: none;
   color: white;
+}
+
+.register {
+  margin-top: 150px;
+  color: white;
+  display: block;
+  text-align: center;
+  height: 200px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px;
+}
+
+.getStarted {
+  height: 40px;
+  width: 300px;
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
+  margin-top: 10px;
+  background-color: #46b7f8;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.logIn {
+  height: 40px;
+  width: 300px;
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: #4c4c4c;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.regForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reg {
+  padding-left: 13px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-right: 10px;
+  height: 22px;
+  width: 277px;
+  border-radius: 0;
+  border: 0.5;
 }
