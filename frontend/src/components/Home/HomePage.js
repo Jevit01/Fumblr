@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "./SearchBar.js";
+import SearchBar from "../SearchBar.js";
 import GetStarted from "./GetStarted.js";
-import Footer from "./Footer.js";
+import Footer from "../Footer.js";
 
 const HomePage = () => {
   return (

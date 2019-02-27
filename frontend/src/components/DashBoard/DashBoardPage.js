@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./NavBar.js";
-import SearchBar from "./SearchBar.js";
+import SearchBar from "../SearchBar.js";
 
 const DashBoardPage = () => {
   return (

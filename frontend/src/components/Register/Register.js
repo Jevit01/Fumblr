@@ -1,4 +1,7 @@
 import React from "react";
+import SearchBar from "../SearchBar.js";
+import Footer from "../Footer.js";
+import LogButton from "./LogButton.js";
 // import { Link } from "react-router-dom";
 
 const Register = ({
@@ -12,13 +15,19 @@ const Register = ({
 }) => {
   return (
     <>
+      <div className="homeMainBar">
+        <h2 className="homeLogo">f</h2>
+        <SearchBar />
+        <LogButton />
+      </div>
+      <br />
       <div className="register">
         <div className="fumblr">
           <h1>Fumblr</h1>
         </div>
         <p>"We don't tumble, We Fumble"</p>
         <br />
-        <form>
+        <form onSubmit={registerUser}>
           <div className="regForm">
             <input
               className="reg"
@@ -30,7 +39,7 @@ const Register = ({
             />
             <input
               className="reg"
-              type="text"
+              type="password"
               placeholder="Password"
               value={password}
               name="password"
@@ -45,10 +54,13 @@ const Register = ({
               onChange={handleChange}
             />
           </div>
-          <button className="getStarted">Sign Up</button>
+          <button type="submit" className="getStarted">
+            Sign Up
+          </button>
           <br />
         </form>
       </div>
+      <Footer />
     </>
   );
 };

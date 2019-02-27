@@ -17,7 +17,7 @@ router.get("/", getAllUsers);
 router.patch("/:id", editUser);
 router.post("/new", createUser);
 router.post("/login", passport.authenticate("local", {}), loginUser);
-router.get("/isLoggedIn", isLoggedIn);
 router.post("/logout", loginRequired, logoutUser);
+router.post("/isLoggedIn", isLoggedIn);
 
 module.exports = router;

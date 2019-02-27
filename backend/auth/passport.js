@@ -1,6 +1,6 @@
 const passport = require("passport");
 const pgp = require("pg-promise")({});
-const db = pgp("postgres://localhost:5432/fumblr");
+const db = pgp("postgres://localhost/fumblr");
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
@@ -12,7 +12,7 @@ module.exports = () => {
       name: name
     })
       .then(user => {
-        done(null, user.username);
+        done(null, user.name);
       })
       .catch(err => {
         done(err, null);

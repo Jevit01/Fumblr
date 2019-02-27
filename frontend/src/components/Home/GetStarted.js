@@ -10,11 +10,11 @@ const GetStarted = () => {
         </div>
         <p>"We don't tumble, We Fumble"</p>
         <br />
-        <Link to="/register">
+        <Link to="/auth/register">
           <button className="getStarted">Get Started</button>
         </Link>
         <br />
-        <Link to="/login" className="logIn">
+        <Link to="/auth/login" className="logIn">
           <button className="logIn">Log In</button>
         </Link>
       </div>

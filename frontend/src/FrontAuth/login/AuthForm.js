@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Auth from "../util/Auth";
 // import Form from "./Form";
 import LogIn from "../../components/LogIn";
-import Register from "../../components/Register";
+import Register from "../../components/Register/Register";
 
 class AuthForm extends Component {
   state = {
@@ -32,11 +32,11 @@ class AuthForm extends Component {
 
     await this.props.checkAuthenticateStatus();
 
-    this.setState({
-      name: "",
-      email: "",
-      password: ""
-    });
+    // this.setState({
+    //   name: "",
+    //   email: "",
+    //   password: ""
+    // });
     // axios.post("/users/new", { username, password }).then(() => {
     //   Auth.authenticateUser(username);
     //   axios
@@ -68,7 +68,6 @@ class AuthForm extends Component {
       .then(() => {
         this.setState({
           name: "",
-          email: "",
           password: ""
         });
       });

@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import DashBoardPage from "./components/DashBoardPage.js";
-import HomePage from "./components/HomePage.js";
-import GetStartedPage from "./components/GetStartedPage.js";
-import RegisterPage from "./components/RegisterPage.js";
-import { Route, Switch } from "react-router-dom";
+import HomePage from "./components/Home/HomePage.js";
+import DashBoardPage from "./components/DashBoard/DashBoardPage.js";
+import { Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
-import Users from "./FrontAuth/Users/Users";
 import AuthForm from "./FrontAuth/login/AuthForm";
 import Auth from "./FrontAuth/util/Auth";
 import PrivateRoute from "./FrontAuth/util/AuthRouting";
@@ -18,19 +15,18 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // check if user is logged in on refresh
     this.checkAuthenticateStatus();
   }
 
   checkAuthenticateStatus = () => {
     axios.get("/users/isLoggedIn").then(user => {
-      if (user.data.username === Auth.getToken()) {
+      if (user.data.name === Auth.getToken()) {
         this.setState({
           isLoggedIn: Auth.isUserAuthenticated(),
-          username: Auth.getToken()
+          name: Auth.getToken()
         });
       } else {
-        if (user.data.username) {
+        if (user.data.name) {
           this.logoutUser();
         } else {
           Auth.deauthenticateUser();
@@ -51,22 +47,21 @@ class App extends Component {
   };
 
   render() {
-    const { isLoggedIn } = this.state;
     return (
       <>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={GetStartedPage} />
-          <Route path="/dashboard" component={DashBoardPage} />
-          <Route path="/register" component={RegisterPage} />
-          <PrivateRoute path="/users" component={Users} />
+          <PrivateRoute path="/dashboard" component={DashBoardPage} />
           <Route
             path="/auth"
             render={() => {
+              if (this.state.isLoggedIn) {
+                return <Redirect to="/dashboard" />;
+              }
               return (
                 <AuthForm
                   checkAuthenticateStatus={this.checkAuthenticateStatus}
-                  isLoggedIn={isLoggedIn}
+                  isLoggedIn={this.state.isLoggedIn}
                 />
               );
             }}

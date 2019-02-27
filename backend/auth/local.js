@@ -7,7 +7,7 @@ const pgp = require("pg-promise")({});
 const db = pgp("postgres://localhost:5432/fumblr");
 
 passport.use(
-  new LocalStrategy((username, password, done) => {
+  new LocalStrategy((name, password, done) => {
     db.one("SELECT * FROM users WHERE name = ${name}", {
       name: name
     })
