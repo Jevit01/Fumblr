@@ -59,9 +59,9 @@ const loginUser = (req, res) => {
 
 const isLoggedIn = (req, res) => {
   if (req.user) {
-    res.json({ name: req.user });
+    res.json({ email: req.user });
   } else {
-    res.json({ name: null });
+    res.json({ email: null });
   }
 };
 

@@ -7,9 +7,9 @@ const pgp = require("pg-promise")({});
 const db = pgp("postgres://localhost:5432/fumblr");
 
 passport.use(
-  new LocalStrategy((name, password, done) => {
-    db.one("SELECT * FROM users WHERE name = ${name}", {
-      name: name
+  new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
+    db.one("SELECT * FROM users WHERE email = ${email}", {
+      email: email
     })
       .then(user => {
         if (!helpers.comparePass(password, user.password)) {

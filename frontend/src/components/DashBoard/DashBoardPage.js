@@ -2,14 +2,19 @@ import React from "react";
 import Navbar from "./NavBar.js";
 import SearchBar from "../SearchBar.js";
 
-const DashBoardPage = () => {
+const DashBoardPage = props => {
   return (
     <>
       <div className="mainbar">
-        <h2 className="logo">f</h2>
+        <div className="f">
+          <h2 className="logo">f</h2>
+        </div>
         <div className="topbar">
           <SearchBar />
           <Navbar />
+          <button className="logout" onClick={props.logoutUser}>
+            LogOut
+          </button>
         </div>
       </div>
     </>

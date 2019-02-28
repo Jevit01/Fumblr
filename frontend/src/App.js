@@ -19,14 +19,14 @@ class App extends Component {
   }
 
   checkAuthenticateStatus = () => {
-    axios.get("/users/isLoggedIn").then(user => {
-      if (user.data.name === Auth.getToken()) {
+    axios.post("/users/isLoggedIn").then(user => {
+      if (user.data.email === Auth.getToken()) {
         this.setState({
           isLoggedIn: Auth.isUserAuthenticated(),
-          name: Auth.getToken()
+          email: Auth.getToken()
         });
       } else {
-        if (user.data.name) {
+        if (user.data.email) {
           this.logoutUser();
         } else {
           Auth.deauthenticateUser();
@@ -51,7 +51,11 @@ class App extends Component {
       <>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <PrivateRoute path="/dashboard" component={DashBoardPage} />
+          <PrivateRoute
+            path="/dashboard"
+            component={DashBoardPage}
+            logoutUser={this.logoutUser}
+          />
           <Route
             path="/auth"
             render={() => {

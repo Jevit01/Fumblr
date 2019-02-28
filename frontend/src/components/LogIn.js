@@ -23,7 +23,7 @@ const LogIn = ({
         <div className="fumblr">
           <h1>Fumblr</h1>
         </div>
-        <form>
+        <form onSubmit={loginUser}>
           <input
             className="email"
             type="text"
@@ -35,14 +35,16 @@ const LogIn = ({
           <br />
           <input
             className="email"
-            type="text"
+            type="password"
             value={password}
             name="password"
             placeholder="Password"
             onChange={handleChange}
           />
           <br />
-          <button className="next">Next</button>
+          <button type="submit" className="next">
+            Log In
+          </button>
         </form>
       </div>
       <Footer />

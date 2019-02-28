@@ -34,13 +34,20 @@
 }
 
 .logo {
+  display: flex;
   font-family: "Bookman Old Style", arial;
   font-size: 50px;
   color: #ffffff;
   margin: 0px;
   padding-left: 22px;
-  border-bottom: 1px solid #425167;
   cursor: pointer;
+}
+
+.f {
+  display: flex;
+  height: 54px;
+  width: 100%;
+  border-bottom: 1px solid #425167;
 }
 
 .logo:hover {
@@ -221,4 +228,20 @@ a {
   width: 277px;
   border-radius: 0;
   border: 0.5;
+}
+
+.logout {
+  height: 33px;
+  width: 87px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 2px;
+  font-weight: bolder;
+  font-size: 12px;
+  color: white;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
