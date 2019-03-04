@@ -23,7 +23,7 @@ const LogIn = ({
         <div className="fumblr">
           <h1>Fumblr</h1>
         </div>
-        <form onSubmit={loginUser}>
+        <form className="logForm" onSubmit={loginUser}>
           <input
             className="email"
             type="text"

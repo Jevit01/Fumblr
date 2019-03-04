@@ -15,3 +15,7 @@
   margin-right: 540px;
   background-color: #425167;
 }
+
+.SearchBar:active {
+  background-color: white;
+}

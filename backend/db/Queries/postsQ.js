@@ -30,10 +30,8 @@ const getAllPosts = (req, res, next) => {
 };
 
 const getAllPostsFromOneUser = (req, res, next) => {
-  let userId = parseInt(req.params.id);
   db.any(
-    "SELECT * FROM posts JOIN users ON (users.id = posts.users_id) WHERE users.id=$1",
-    [userId]
+    "SELECT body, image, users_id, profilePic, name FROM posts JOIN users ON users.id = posts.users_id"
   )
     .then(data => {
       res.status(200).json({
