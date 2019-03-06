@@ -31,7 +31,7 @@ const getAllPosts = (req, res, next) => {
 
 const getAllPostsFromOneUser = (req, res, next) => {
   db.any(
-    "SELECT body, image, users_id, profilePic, name FROM posts JOIN users ON users.id = posts.users_id"
+    "SELECT body, image, users_id, profilePic, COUNT AS like_count, title, name FROM posts  FULL JOIN users ON users.id = posts.users_id  FULL JOIN tags ON tags.posts_id = posts.id FULL JOIN (SELECT COUNT(*), posts_id FROM likes GROUP BY posts_id) AS likes_count ON posts.id = likes_count.posts_id"
   )
     .then(data => {
       res.status(200).json({
