@@ -4,7 +4,7 @@ const db = pgp("postgres://localhost/fumblr");
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user);
+    done(null, { email: user.email, id: user.id, profilePic: user.profilePic });
   });
 
   passport.deserializeUser((user, done) => {
@@ -12,7 +12,11 @@ module.exports = () => {
       email: user.email
     })
       .then(user => {
-        done(null, user);
+        done(null, {
+          email: user.email,
+          id: user.id,
+          profilePic: user.profilePic
+        });
       })
       .catch(err => {
         done(err, null);

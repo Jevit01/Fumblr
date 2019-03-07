@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import HomePage from "./components/Home/HomePage.js";
 import DashBoardPage from "./components/DashBoard/DashBoardPage.js";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import axios from "axios";
 import AuthForm from "./FrontAuth/login/AuthForm";
 import Auth from "./FrontAuth/util/Auth";
@@ -15,21 +15,26 @@ class App extends Component {
   };
 
   componentDidMount() {
+    // debugger;
+
     this.checkAuthenticateStatus();
   }
 
-  checkAuthenticateStatus = () => {
-    axios.post("/users/isLoggedIn").then(user => {
-      if (user.data.email.email === Auth.getToken()) {
-        this.setState({
-          isLoggedIn: Auth.isUserAuthenticated(),
-          email: Auth.getToken()
-        });
-      } else {
-        if (user.data.email) {
-          this.logoutUser();
+  checkAuthenticateStatus = async () => {
+    let tokenresult = await Auth.getToken();
+    await axios.post("/users/isLoggedIn").then(user => {
+      if (user.data.email !== null) {
+        if (user.data.email.email === tokenresult) {
+          this.setState({
+            isLoggedIn: Auth.isUserAuthenticated(),
+            email: Auth.getToken()
+          });
         } else {
-          Auth.deauthenticateUser();
+          if (user.data.email.email) {
+            this.logoutUser();
+          } else {
+            Auth.deauthenticateUser();
+          }
         }
       }
     });
@@ -76,4 +81,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
