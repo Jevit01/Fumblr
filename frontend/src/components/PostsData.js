@@ -12,6 +12,7 @@ class PostsData extends Component {
 
   getPosts = () => {
     axios.get("/posts/allinfo").then(post => {
+      console.log(post);
       this.setState({
         posts: post.data.data
       });
@@ -22,10 +23,10 @@ class PostsData extends Component {
     let post = this.state.posts.map(res => {
       return (
         <>
-          {res.profilepic === null ? (
+          {res.image === null ? (
             ""
           ) : (
-            <div className="midDash">
+            <div className="midDash" key={res.id}>
               <div className="userPic">
                 <img className="userImg" src={res.profilepic} alt="" />
                 <div className="name">
@@ -50,6 +51,9 @@ class PostsData extends Component {
               </div>
             </div>
           )}
+          <br />
+          <br />
+          <br />
           <br />
           <br />
           <br />

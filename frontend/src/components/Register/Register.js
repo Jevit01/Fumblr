@@ -8,6 +8,7 @@ const Register = ({
   name,
   email,
   password,
+  profilePic,
   isLoggedIn,
   loginUser,
   registerUser,
@@ -51,6 +52,14 @@ const Register = ({
               placeholder="Username"
               value={name}
               name="name"
+              onChange={handleChange}
+            />
+            <input
+              className="reg"
+              type="text"
+              placeholder="Profile Image"
+              value={profilePic}
+              name="profilePic"
               onChange={handleChange}
             />
           </div>

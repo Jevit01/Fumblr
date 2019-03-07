@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./NavBar.js";
 import SearchBar from "../SearchBar.js";
 import PostsData from "../PostsData.js";
+import PostForm from "../PostForm.js";
 
 const DashBoardPage = props => {
   return (
@@ -18,6 +19,7 @@ const DashBoardPage = props => {
           </button>
         </div>
       </div>
+      <PostForm />
       <PostsData />
     </>
   );

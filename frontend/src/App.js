@@ -20,7 +20,7 @@ class App extends Component {
 
   checkAuthenticateStatus = () => {
     axios.post("/users/isLoggedIn").then(user => {
-      if (user.data.email === Auth.getToken()) {
+      if (user.data.email.email === Auth.getToken()) {
         this.setState({
           isLoggedIn: Auth.isUserAuthenticated(),
           email: Auth.getToken()

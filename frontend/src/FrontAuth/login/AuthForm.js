@@ -11,7 +11,8 @@ class AuthForm extends Component {
   state = {
     name: "",
     email: "",
-    password: ""
+    password: "",
+    profilePic: ""
   };
 
   handleChange = e => {
@@ -22,9 +23,9 @@ class AuthForm extends Component {
 
   registerUser = async e => {
     e.preventDefault();
-    const { name, email, password } = this.state;
+    const { name, email, password, profilePic } = this.state;
 
-    await axios.post("/users/new", { name, email, password });
+    await axios.post("/users/new", { name, email, password, profilePic });
 
     Auth.authenticateUser(email);
 

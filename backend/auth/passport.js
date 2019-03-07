@@ -4,15 +4,15 @@ const db = pgp("postgres://localhost/fumblr");
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user.email);
+    done(null, user);
   });
 
-  passport.deserializeUser((email, done) => {
+  passport.deserializeUser((user, done) => {
     db.one("SELECT * FROM users WHERE email = ${email}", {
-      email: email
+      email: user.email
     })
       .then(user => {
-        done(null, user.email);
+        done(null, user);
       })
       .catch(err => {
         done(err, null);

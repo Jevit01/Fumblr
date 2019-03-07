@@ -1,28 +1,14 @@
-import React, { Component } from "react";
-const axios = require("axios");
+import React from "react";
+import { Link } from "react-router-dom";
 
-class PostNav extends Component {
-  state = {
-    post: []
-  };
-
-  componentDidMount() {
-    this.post();
-  }
-
-  post = () => {
-    axios.post("/posts/").then(res => {
-      this.setState({
-        post: res.data.data
-      });
-    });
-  };
-
-  render() {
-    let post = this.state.post.map(res => {
-      return <></>;
-    });
-  }
-}
+const PostNav = () => {
+  return (
+    <div>
+      <Link to="/newpost">
+        <button>Post</button>
+      </Link>
+    </div>
+  );
+};
 
 export default PostNav;

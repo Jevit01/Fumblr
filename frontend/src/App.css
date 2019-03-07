@@ -258,7 +258,7 @@ a {
 .midDash {
   display: grid;
   grid-template-columns: 10% 30% 15%;
-  grid-template-rows: 20% 80% 10%;
+  grid-template-rows: 20% 50% 40% 10%;
   height: 500px;
   justify-content: center;
 }
@@ -268,14 +268,14 @@ a {
   height: auto;
   width: auto;
   background-color: white;
-  grid-row: 2;
+  grid-row: 2/4;
   grid-column: 2;
 }
 
 .userPic {
   height: auto;
   grid-column: 2;
-  grid-row: 1/3;
+  grid-row: 1/4;
   display: flex;
   flex-direction: row;
   border-radius: 5px;
@@ -291,7 +291,7 @@ a {
   border-radius: 50px;
   border: 2px solid black;
   grid-column: 2;
-  grid-row: 1/3;
+  grid-row: 1/4;
 }
 
 .postImg {
@@ -299,15 +299,20 @@ a {
   height: 220px;
   width: 400px;
   grid-column: 2;
-  grid-row: 2/3;
+  grid-row: 2/4;
   margin: 5px;
   margin-left: 15px;
 }
 
 .body {
   grid-column: 2;
-  grid-row: 2/3;
+  grid-row: 3/4;
   margin-left: 5px;
+  overflow: scroll;
+  word-wrap: normal;
+  height: 200px;
+  width: auto;
+  margin-right: 5px;
 }
 .name {
   text-decoration: underline;
@@ -317,7 +322,7 @@ a {
 
 .tags {
   grid-column: 2;
-  grid-row: 3/3;
+  grid-row: 4/4;
 }
 
 .hash {
@@ -326,7 +331,7 @@ a {
 
 .likes {
   grid-column: 2;
-  grid-row: 3/3;
+  grid-row: 4/4;
   margin-right: 5px;
 }
 
@@ -336,5 +341,5 @@ a {
   background-color: white;
   border-radius: 0px 0px 5px 5px;
   grid-column: 2;
-  grid-row: 3/3;
+  grid-row: 4/4;
 }

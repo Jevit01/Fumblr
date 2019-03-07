@@ -30,8 +30,9 @@ const getAllPosts = (req, res, next) => {
 };
 
 const getAllPostsFromOneUser = (req, res, next) => {
+  req.body.users_id = req.user.id;
   db.any(
-    "SELECT body, image, users_id, profilePic, COUNT AS like_count, title, name FROM posts  FULL JOIN users ON users.id = posts.users_id  FULL JOIN tags ON tags.posts_id = posts.id FULL JOIN (SELECT COUNT(*), posts_id FROM likes GROUP BY posts_id) AS likes_count ON posts.id = likes_count.posts_id"
+    "SELECT body, image, users_id, profilePic, COUNT AS like_count, title, name FROM posts  FULL JOIN users ON posts.users_id = users.id  FULL JOIN tags ON tags.posts_id = posts.id FULL JOIN (SELECT COUNT(*), posts_id FROM likes GROUP BY posts_id) AS likes_count ON posts.id = likes_count.posts_id"
   )
     .then(data => {
       res.status(200).json({
@@ -64,7 +65,12 @@ const getPostsLikes = (req, res, next) => {
 };
 
 const createPost = (req, res, next) => {
-  db.none("INSERT INTO posts(image, body)VALUES(${image}, ${body})", req.body)
+  req.body.users_id = req.user.id;
+  console.log(req.user);
+  db.none(
+    "INSERT INTO posts(users_id, image, body)VALUES(${users_id},${image}, ${body})",
+    req.body
+  )
     .then(() => {
       res.status(200).json({
         status: "Success",

@@ -33,8 +33,13 @@ const getAllUsers = (req, res, next) => {
 const createUser = (req, res, next) => {
   const hash = authHelpers.createHash(req.body.password);
   db.none(
-    "INSERT INTO users (name, email, password) VALUES (${name}, ${email}, ${password})",
-    { name: req.body.name, email: req.body.email, password: hash }
+    "INSERT INTO users (name, email, password, profilePic) VALUES (${name}, ${email}, ${password}, ${profilePic})",
+    {
+      name: req.body.name,
+      email: req.body.email,
+      password: hash,
+      profilePic: req.body.profilePic
+    }
   )
     .then(() => {
       res.status(200).json({
