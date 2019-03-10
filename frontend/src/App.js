@@ -7,6 +7,7 @@ import axios from "axios";
 import AuthForm from "./FrontAuth/login/AuthForm";
 import Auth from "./FrontAuth/util/Auth";
 import PrivateRoute from "./FrontAuth/util/AuthRouting";
+import PostPage from "./components/PostPage.js";
 
 class App extends Component {
   state = {
@@ -15,8 +16,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // debugger;
-
     this.checkAuthenticateStatus();
   }
 
@@ -49,6 +48,7 @@ class App extends Component {
       .then(() => {
         this.checkAuthenticateStatus();
       });
+    this.props.history.push("/");
   };
 
   render() {
@@ -61,6 +61,7 @@ class App extends Component {
             component={DashBoardPage}
             logoutUser={this.logoutUser}
           />
+          <PrivateRoute path="/newpost" component={PostPage} />
           <Route
             path="/auth"
             render={() => {

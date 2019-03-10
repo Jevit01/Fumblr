@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const PostNav = () => {
   return (
-    <div>
+    <div className="newPost">
       <Link to="/newpost">
-        <button>Post</button>
+        <button className="postButton">Post</button>
       </Link>
     </div>
   );

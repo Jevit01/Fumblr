@@ -12,7 +12,6 @@ class PostsData extends Component {
 
   getPosts = () => {
     axios.get("/posts/allinfo").then(post => {
-      console.log(post);
       this.setState({
         posts: post.data.data
       });
